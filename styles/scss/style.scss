@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;700&family=Raleway:wght@500;600;700&display=swap");
+@import "config";
+
+// ~~~ Reset ~~~
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+body {
+	font-family: $font-body;
+	font-weight: 500;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1.3rem 1.5rem;
+	margin-bottom: 5rem;
+
+	img {
+		width: 25%;
+	}
+
+	ul {
+		display: flex;
+		font-size: 0.75rem;
+		font-family: $font-headings;
+		font-weight: 500;
+
+		li {
+			list-style: none;
+			margin-left: 1.5rem;
+		}
+	}
+}
+
+@mixin display_section($device: "mobile") {
+	@if ($device == "mobile") {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	} @else if ($device == "desktop") {
+		display: grid;
+	} @else {
+		@error "Invalid device input!";
+	}
+}
+
+.main {
+	&__files {
+		padding: 0 1.5rem;
+		color: $dark-blue;
+
+		@
+
+		&__illustration {
+			width: 100%;
+			margin-bottom: 3rem;
+		}
+
+		h1 {
+			line-height: 1.4;
+			margin-bottom: 1.5rem;
+		}
+
+		p {
+			font-size: 0.95rem;
+			line-height: 1.5;
+			margin-bottom: 1.5rem;
+		}
+
+		form {
+			margin-bottom: 5rem;
+
+			%form_misc {
+				font-family: $font-headings;
+				min-width: 20rem;
+				border-radius: 3px;
+				box-shadow: $bx-sh-sm;
+			}
+
+			input {
+				@extend %form_misc;
+				border: 1px solid $desaturated-blue;
+				padding: 0.7rem 1.25rem;
+				margin-bottom: 1rem;
+			}
+
+			button {
+				@extend %form_misc;
+				background-color: $bright-blue;
+				color: white;
+				border: none;
+				margin-bottom: 0.7rem;
+				padding: 0.75rem;
+			}
+		}
+	}
+
+	&__productive {
+		background-color: $gray-blue;
+		@extend %section-flex;
+
+		// padding:
+		&__illustration {
+			width: 100%;
+		}
+	}
+
+	&__access {
+		background-color: $desaturated-blue;
+	}
+}
+
+.footer {
+	background-color: $dark-blue;
+}
