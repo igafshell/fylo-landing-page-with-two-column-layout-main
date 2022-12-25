@@ -8,7 +8,12 @@
 			type="image/png"
 			sizes="32x32"
 			href="./images/favicon-32x32.png"
+			a
 		/>
+		<script
+			src="https://kit.fontawesome.com/efd3aa90cb.js"
+			crossorigin="anonymous"
+		></script>
 		<link rel="stylesheet" href="./styles/css/style.css" />
 		<title>Frontend Mentor | Fylo landing page with two column layout</title>
 	</head>
@@ -34,54 +39,61 @@
 					alt="people with lots of files"
 					class="main__files__illustration"
 				/>
-				<h1>All your files in one secure location, accessible anywhere.</h1>
-				<p>
-					Fylo stores your most important files in one secure location. Access
-					them wherever you need, share and collaborate with friends, family,
-					and co-workers.
-				</p>
-				<form action="#">
-					<input type="email" placeholder="Enter your email..." /> <br />
-					<button type="submit">Get Started</button>
-				</form>
-				<img
-					src="./images/bg-curve-mobile.svg"
-					alt="background curve"
-					class="main__files__curve"
-				/>
+				<div class="text">
+					<h1>All your files in one secure location, accessible anywhere.</h1>
+					<p>
+						Fylo stores your most important files in one secure location. Access
+						them wherever you need, share and collaborate with friends, family,
+						and co-workers.
+					</p>
+					<form action="#">
+						<input type="email" placeholder="Enter your email..." />
+						<button type="submit">Get Started</button>
+					</form>
+				</div>
 			</section>
+			<img alt="background curve" class="main__curve" />
+			<!-- src="./images/bg-curve-mobile.svg" -->
 			<section class="main__productive">
 				<img
 					src="./images/illustration-2.svg"
 					alt="productive illustration"
 					class="main__productive__illustration"
 				/>
-				<h1>Stay productive, wherever you are</h1>
-				<p>
-					Never let location be an issue when accessing your files. Fylo has you
-					covered for all of your file storage needs. Securely share files and
-					folders with friends, family and colleagues for live collaboration. No
-					email attachments required!
-				</p>
-				<a href="#" target="_blank" rel="noopener noreferrer"
-					>See how Fylo works</a
-				>
-				<blockquote class="main__productive__quote">
-					<img src="./images/icon-quotes.svg" alt="quote icon" />
-					<p>
-						Fylo has improved our team productivity by an order of magnitude.
-						Since making the switch our team has become a well-oiled
-						collaboration machine.
+				<div class="text">
+					<h1 class="main__productive__h1">
+						Stay productive, wherever you are
+					</h1>
+					<p class="main__productive__p">
+						Never let location be an issue when accessing your files. Fylo has
+						you covered for all of your file storage needs.
+						<br /><br />
+						Securely share files and folders with friends, family and colleagues
+						for live collaboration. No email attachments required!
 					</p>
-					<div class="main__productive__quote__author">
-						<img
-							src="./images/avatar-testimonial.jpg"
-							alt="Kyle Burton, author avatar"
-						/>
-						<h4>Kyle Burton</h4>
-						<p>Founder & CEO, Huddle</p>
-					</div>
-				</blockquote>
+					<a href="#" rel="noopener noreferrer">
+						See how Fylo works
+						<img src="./images/icon-arrow.svg" alt="arrow icon" />
+					</a>
+					<blockquote class="main__productive__quote">
+						<img src="./images/icon-quotes.svg" alt="quote icon" />
+						<p class="main__productive__quote__p">
+							Fylo has improved our team productivity by an order of magnitude.
+							Since making the switch our team has become a well-oiled
+							collaboration machine.
+						</p>
+						<div class="main__productive__quote__author">
+							<img
+								src="./images/avatar-testimonial.jpg"
+								alt="Kyle Burton, author avatar"
+							/>
+							<div>
+								<h4>Kyle Burton</h4>
+								<p>Founder & CEO, Huddle</p>
+							</div>
+						</div>
+					</blockquote>
+				</div>
 			</section>
 			<section class="main__access">
 				<h1>Get early access today</h1>
@@ -91,28 +103,42 @@
 					be happy to help you.
 				</p>
 				<form action="#">
-					<input type="email" />
+					<input type="email" placeholder="email@example.com" />
 					<button type="submit">Get Started For Free</button>
 				</form>
 			</section>
 		</main>
 		<footer class="footer">
-			<img src="./images/logo.svg" alt="Fylo logo" />
+			<img
+				src="./images/logo-bright.svg"
+				alt="Fylo logo"
+				class="footer__logo"
+			/>
 			<ul class="footer__contact">
-				<li>Phone: +1-543-123-4567</li>
-				<li>example@fylo.com</li>
+				<li>
+					<img src="./images/icon-phone.svg" alt="icon phone" /> Phone:
+					+1-543-123-4567
+				</li>
+				<li>
+					<img src="./images/icon-email.svg" alt="icon phone" />example@fylo.com
+				</li>
 			</ul>
 			<ul class="footer__jobs">
-				<li>About Us</li>
-				<li>Jobs</li>
-				<li>Press</li>
-				<li>Blog</li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Jobs</a></li>
+				<li><a href="#">Press</a></li>
+				<li><a href="#">Blog</a></li>
 			</ul>
 			<ul class="footer__terms">
-				<li>Contact Us</li>
-				<li>Terms</li>
-				<li>Privacy</li>
+				<li><a href="#">Contact Us</a></li>
+				<li><a href="#">Terms</a></li>
+				<li><a href="#">Privacy</a></li>
 			</ul>
+			<div class="footer__icons">
+				<a href="#"><i class="fa-brands fa-facebook"></i></a>
+				<a href="#"><i class="fa-brands fa-twitter"></i></a>
+				<a href="#"><i class="fa-brands fa-instagram"></i></a>
+			</div>
 		</footer>
 	</body>
 </html>

@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;700&family=Raleway:wght@500;600;700&display=swap");
 @import "config";
 
 // ~~~ Reset ~~~
@@ -8,25 +7,49 @@
 	box-sizing: border-box;
 }
 
+%display-flex {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
 }
 
 body {
+	min-height: 100vh;
 	font-family: $font-body;
 	font-weight: 500;
+	@extend %display-flex;
 }
 
 .header {
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 1.3rem 1.5rem;
 	margin-bottom: 5rem;
 
+	@media (min-width: 500px) {
+		margin-bottom: 2rem;
+	}
+
+	@media (min-width: 700px) {
+		margin-bottom: 1rem;
+		padding: 1.7rem 2.5rem;
+	}
+
+	@media (min-width: 1100px) {
+		margin-bottom: 0;
+		padding: 2.5rem 3rem
+	}
+
 	img {
-		width: 25%;
+		width: min(7rem, 25%);
 	}
 
 	ul {
@@ -42,40 +65,45 @@ body {
 	}
 }
 
-@mixin display_section($device: "mobile") {
-	@if ($device == "mobile") {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	} @else if ($device == "desktop") {
-		display: grid;
-	} @else {
-		@error "Invalid device input!";
-	}
-}
-
 .main {
-	&__files {
-		padding: 0 1.5rem;
-		color: $dark-blue;
+	width: 100%;
 
-		@
+	@media (min-width: 850px) {
+		font-size: 1.1rem;
+	}
+
+	&__files {
+		@extend %display-flex;
+		padding: 0 1.25rem;
+		color: $dark-blue;
 
 		&__illustration {
 			width: 100%;
 			margin-bottom: 3rem;
+
+			@media (min-width: 600px) {
+				width: 70%;
+			}
+
+			@media (min-width: 850px) {
+				width: 60%;
+			}
 		}
 
 		h1 {
+			margin: 0 auto;
 			line-height: 1.4;
 			margin-bottom: 1.5rem;
+			font-family: $font-headings;
+			max-width: $max-width1;
 		}
 
 		p {
-			font-size: 0.95rem;
+			margin: 0 auto;
 			line-height: 1.5;
 			margin-bottom: 1.5rem;
+			font-size: 0.9em;
+			max-width: $max-width1;
 		}
 
 		form {
@@ -83,16 +111,22 @@ body {
 
 			%form_misc {
 				font-family: $font-headings;
-				min-width: 20rem;
+				width: clamp(18rem, 60vw, 25rem);
 				border-radius: 3px;
 				box-shadow: $bx-sh-sm;
 			}
 
 			input {
 				@extend %form_misc;
+				display: block;
 				border: 1px solid $desaturated-blue;
 				padding: 0.7rem 1.25rem;
+				margin: 0 auto;
 				margin-bottom: 1rem;
+
+				:focus {
+					outline: none;
+				}
 			}
 
 			button {
@@ -104,23 +138,371 @@ body {
 				padding: 0.75rem;
 			}
 		}
+
+		@media (min-width: 1100px) {
+			padding: 3rem 3rem 4rem;
+			text-align: left;
+
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas: "text illustration";
+
+			&__text {
+				grid-area: text;
+			}
+
+			h1 {
+				font-size: 1.85em;
+				line-height: 1.4;
+				margin: 0;
+				margin-bottom: 1rem;
+			}
+
+			p {
+				align-self: stretch;
+				margin: 0;
+				margin-bottom: 1rem;
+			}
+
+			form {
+				input {
+					display: inline;
+					margin: 0;
+					width: 60%;
+				}
+
+				button {
+					display: inline;
+					width: 30%;
+				}
+			}
+
+			&__illustration {
+				grid-area: illustration;
+				width: 100%;
+				margin: 0;
+			}
+		}
+
+		@media (min-width: 1440px) {
+			padding-left: $section-margin
+		}
+	}
+
+	&__curve {
+		width: 100%;
+		display: block;
+		content: url("../../images/bg-curve-mobile.svg");
+
+		@media (min-width: 750px) {
+			content: url("../../images/bg-curve-desktop.svg")
+		}
 	}
 
 	&__productive {
+		@extend %display-flex;
 		background-color: $gray-blue;
-		@extend %section-flex;
+		padding: 3rem 1.5rem 5rem;
 
-		// padding:
 		&__illustration {
 			width: 100%;
+			margin-bottom: 5rem;
+
+			@media (min-width: 600px) {
+				width: 80%;
+			}
+
+			@media (min-width: 800px) {
+				width: 70%;
+			}
+		}
+
+
+		&__h1 {
+			font-family: $font-headings;
+			font-size: 1em;
+			margin-bottom: 1.5rem;
+			color: $dark-blue;
+		}
+
+		&__p {
+			max-width: $max-width1;
+			text-align: left;
+			font-size: 0.9em;
+			color: rgb(88, 88, 88);
+
+			@media (min-width: 850px) {
+				max-width: $max-width2;
+			}
+		}
+
+		a {
+			color: $cyan;
+			font-size: 0.8rem;
+			padding-bottom: 4px;
+			border-bottom: 1px solid $cyan;
+			margin: 2.5rem 0 3rem;
+			display: inline-flex;
+
+			img {
+				width: 17px;
+				margin-left: 6px;
+			}
+		}
+
+		&__quote {
+			background-color: white;
+			color: $dark-blue;
+			text-align: left;
+			box-shadow: $bx-sh-md;
+			border-radius: 5px;
+			padding: 1.25rem 1rem 1.25rem 2rem;
+			max-width: $max-width1;
+			margin: auto;
+
+			&__p {
+				margin: 0.25rem 0 0.75rem;
+				font-size: 0.75em;
+				line-height: 1.6;
+			}
+
+			&__author {
+				display: flex;
+				justify-content: left;
+				align-items: center;
+
+				h4 {
+					font-size: 0.85rem;
+				}
+
+				p {
+					font-size: 0.75rem;
+				}
+
+				img {
+					width: 30px;
+					border-radius: 50px;
+					margin-right: 0.5rem;
+				}
+			}
+		}
+
+		@media (min-width: 1100px) {
+			display: grid;
+			grid-template-areas:
+				"h1 illustration"
+				"p illustration"
+				"a illustration"
+				"quote illustration";
+
+			padding: 3rem 3rem 5rem;
+			text-align: left;
+			justify-items: flex-start;
+			column-gap: 2rem;
+
+			&__h1 {
+				grid-area: h1;
+				font-size: 2em;
+				margin-bottom: .5em;
+			}
+
+			&__p {
+				grid-area: p;
+			}
+
+			a {
+				margin: 1rem 0 2rem;
+				grid-area: a;
+			}
+
+			&__quote {
+				grid-area: quote;
+				margin: 0;
+			}
+
+			&__illustration {
+				grid-area: illustration;
+				width: 100%;
+			}
+		}
+
+		@media (min-width: 1440px) {
+			padding-left: $section-margin
 		}
 	}
 
 	&__access {
+		@extend %display-flex;
 		background-color: $desaturated-blue;
+		color: $gray-blue;
+		padding: 3rem 2rem;
+
+		h1 {
+			font-size: 1.25em;
+			font-family: $font-headings;
+		}
+
+		p {
+			margin: 1.25rem 0 2rem;
+			max-width: $max-width1;
+			font-size: 0.9em;
+			font-family: $font-body;
+			font-weight: 400;
+			line-height: 1.5;
+
+			@media (min-width: 850px) {
+				max-width: $max-width2;
+			}
+		}
+
+		form {
+			%form-misc {
+				display: block;
+				width: clamp(15rem, 60vw, 20rem);
+				box-shadow: $bx-sh-sm;
+				border: none;
+				border-radius: 2px;
+				padding: 0.7rem 0.5rem;
+				font-size: 0.7em;
+			}
+
+			input {
+				@extend %form-misc;
+				margin-bottom: 0.5rem;
+				font-family: $font-body;
+
+				:focus {
+					outline: none;
+				}
+			}
+
+			button {
+				@extend %form-misc;
+				font-family: $font-headings;
+				color: white;
+				background-color: $bright-blue;
+			}
+		}
+
+		@media (min-width: 1100px) {
+			padding: 4rem 3rem 3rem;
+			display: grid;
+			grid-template-areas:
+				"h1 form"
+				"p form";
+			grid-template-columns: 1fr 1fr;
+			column-gap: 3rem;
+			text-align: left;
+
+			h1 {
+				grid-area: h1;
+				font-size: 1.5em;
+			}
+
+			p {
+				grid-area: p;
+				font-size: .85em;
+				max-width: 30rem;
+			}
+
+			form {
+				grid-area: form;
+
+				input {
+					width: 80%;
+				}
+
+				button {
+					width: 40%;
+				}
+			}
+		}
+
+		@media (min-width: 1440px) {
+			padding-left: $section-margin
+		}
 	}
 }
 
 .footer {
+	width: 100%;
+	padding: 3rem 1.5rem;
 	background-color: $dark-blue;
+	color: white;
+	text-align: left;
+
+	&__logo {
+		margin-bottom: 2rem;
+	}
+
+	@media (min-width: 900px) {
+		padding: 5rem 3rem;
+
+		display: grid;
+		grid-template-areas:
+			"logo jobs terms icons"
+			"contact jobs terms icons";
+
+		ul {
+			margin: 0;
+		}
+
+		&__logo {
+			grid-area: logo;
+		}
+
+		&__jobs {
+			grid-area: jobs;
+		}
+
+		&__terms {
+			grid-area: terms;
+		}
+
+		&__icons {
+			grid-area: icons;
+
+		}
+
+		&__contact {
+			grid-area: contact;
+		}
+	}
+
+	&__contact,
+	&__jobs,
+	&__terms {
+		margin-bottom: 2rem;
+		list-style: none;
+
+		li {
+			margin-bottom: 0.75rem;
+			font-size: 0.9rem;
+			display: flex;
+
+			img {
+				margin-right: 1rem;
+			}
+		}
+	}
+
+	&__terms {
+		margin-bottom: 0;
+	}
+
+	&__icons {
+		text-align: center;
+		font-size: 15px;
+		margin: 2.5rem 0 0;
+
+		a {
+
+			i {
+				padding: 10px;
+				margin-right: 10px;
+				border-radius: 500px;
+				border: 1px solid white;
+			}
+		}
+	}
 }
