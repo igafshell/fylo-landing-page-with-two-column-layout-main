@@ -1,4 +1,13 @@
 @import "config";
+@import "animations";
+
+/* 
+	TODO:de
+		- write readme
+		- set up live site 
+		- post on twitter and frontendmentor 
+
+*/
 
 // ~~~ Reset ~~~
 * {
@@ -34,21 +43,7 @@ body {
 	padding: 1.3rem 1.5rem;
 	margin-bottom: 5rem;
 
-	@media (min-width: 500px) {
-		margin-bottom: 2rem;
-	}
-
-	@media (min-width: 700px) {
-		margin-bottom: 1rem;
-		padding: 1.7rem 2.5rem;
-	}
-
-	@media (min-width: 1100px) {
-		margin-bottom: 0;
-		padding: 2.5rem 3rem
-	}
-
-	img {
+	&__logo {
 		width: min(7rem, 25%);
 	}
 
@@ -68,10 +63,6 @@ body {
 .main {
 	width: 100%;
 
-	@media (min-width: 850px) {
-		font-size: 1.1rem;
-	}
-
 	&__files {
 		@extend %display-flex;
 		padding: 0 1.25rem;
@@ -80,14 +71,6 @@ body {
 		&__illustration {
 			width: 100%;
 			margin-bottom: 3rem;
-
-			@media (min-width: 600px) {
-				width: 70%;
-			}
-
-			@media (min-width: 850px) {
-				width: 60%;
-			}
 		}
 
 		h1 {
@@ -96,6 +79,11 @@ body {
 			margin-bottom: 1.5rem;
 			font-family: $font-headings;
 			max-width: $max-width1;
+
+			span {
+				text-shadow: 2px 2px 5px rgba(0, 145, 255, .5);
+				font-style: italic;
+			}
 		}
 
 		p {
@@ -138,55 +126,6 @@ body {
 				padding: 0.75rem;
 			}
 		}
-
-		@media (min-width: 1100px) {
-			padding: 3rem 3rem 4rem;
-			text-align: left;
-
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-template-areas: "text illustration";
-
-			&__text {
-				grid-area: text;
-			}
-
-			h1 {
-				font-size: 1.85em;
-				line-height: 1.4;
-				margin: 0;
-				margin-bottom: 1rem;
-			}
-
-			p {
-				align-self: stretch;
-				margin: 0;
-				margin-bottom: 1rem;
-			}
-
-			form {
-				input {
-					display: inline;
-					margin: 0;
-					width: 60%;
-				}
-
-				button {
-					display: inline;
-					width: 30%;
-				}
-			}
-
-			&__illustration {
-				grid-area: illustration;
-				width: 100%;
-				margin: 0;
-			}
-		}
-
-		@media (min-width: 1440px) {
-			padding-left: $section-margin
-		}
 	}
 
 	&__curve {
@@ -207,14 +146,6 @@ body {
 		&__illustration {
 			width: 100%;
 			margin-bottom: 5rem;
-
-			@media (min-width: 600px) {
-				width: 80%;
-			}
-
-			@media (min-width: 800px) {
-				width: 70%;
-			}
 		}
 
 
@@ -230,10 +161,6 @@ body {
 			text-align: left;
 			font-size: 0.9em;
 			color: rgb(88, 88, 88);
-
-			@media (min-width: 850px) {
-				max-width: $max-width2;
-			}
 		}
 
 		a {
@@ -285,49 +212,6 @@ body {
 					margin-right: 0.5rem;
 				}
 			}
-		}
-
-		@media (min-width: 1100px) {
-			display: grid;
-			grid-template-areas:
-				"h1 illustration"
-				"p illustration"
-				"a illustration"
-				"quote illustration";
-
-			padding: 3rem 3rem 5rem;
-			text-align: left;
-			justify-items: flex-start;
-			column-gap: 2rem;
-
-			&__h1 {
-				grid-area: h1;
-				font-size: 2em;
-				margin-bottom: .5em;
-			}
-
-			&__p {
-				grid-area: p;
-			}
-
-			a {
-				margin: 1rem 0 2rem;
-				grid-area: a;
-			}
-
-			&__quote {
-				grid-area: quote;
-				margin: 0;
-			}
-
-			&__illustration {
-				grid-area: illustration;
-				width: 100%;
-			}
-		}
-
-		@media (min-width: 1440px) {
-			padding-left: $section-margin
 		}
 	}
 
@@ -383,44 +267,6 @@ body {
 				background-color: $bright-blue;
 			}
 		}
-
-		@media (min-width: 1100px) {
-			padding: 4rem 3rem 3rem;
-			display: grid;
-			grid-template-areas:
-				"h1 form"
-				"p form";
-			grid-template-columns: 1fr 1fr;
-			column-gap: 3rem;
-			text-align: left;
-
-			h1 {
-				grid-area: h1;
-				font-size: 1.5em;
-			}
-
-			p {
-				grid-area: p;
-				font-size: .85em;
-				max-width: 30rem;
-			}
-
-			form {
-				grid-area: form;
-
-				input {
-					width: 80%;
-				}
-
-				button {
-					width: 40%;
-				}
-			}
-		}
-
-		@media (min-width: 1440px) {
-			padding-left: $section-margin
-		}
 	}
 }
 
@@ -433,40 +279,6 @@ body {
 
 	&__logo {
 		margin-bottom: 2rem;
-	}
-
-	@media (min-width: 900px) {
-		padding: 5rem 3rem;
-
-		display: grid;
-		grid-template-areas:
-			"logo jobs terms icons"
-			"contact jobs terms icons";
-
-		ul {
-			margin: 0;
-		}
-
-		&__logo {
-			grid-area: logo;
-		}
-
-		&__jobs {
-			grid-area: jobs;
-		}
-
-		&__terms {
-			grid-area: terms;
-		}
-
-		&__icons {
-			grid-area: icons;
-
-		}
-
-		&__contact {
-			grid-area: contact;
-		}
 	}
 
 	&__contact,
@@ -506,3 +318,10 @@ body {
 		}
 	}
 }
+
+// Media queries
+@import "media";
+
+/* 
+	Had to put it at the end because otherwise it gets overwritten and won't work
+*/

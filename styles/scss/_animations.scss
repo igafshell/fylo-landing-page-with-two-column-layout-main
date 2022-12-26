@@ -1,0 +1,52 @@
+.header__logo {
+   #logo-icon {
+      #i3 {
+         fill: rgba(189, 186, 250, 1);
+
+         @media (prefers-reduced-motion: no-preference) {
+            transition: fill 300ms ease-in-out;
+         }
+      }
+   }
+
+
+   &:hover {
+      animation: float infinite ease-in-out 2s;
+
+      #logo-icon {
+         $anim-color-duration: 1s;
+         $anim-color-delay: 200ms;
+         $anim-color-timing: linear;
+
+         #i3 {
+            animation: color-cycle $anim-color-duration infinite $anim-color-timing;
+            animation-delay: 200ms;
+         }
+
+         #i2 {
+            animation: color-cycle $anim-color-duration infinite $anim-color-timing;
+            animation-delay: 400ms;
+         }
+
+         #i1 {
+            animation: color-cycle $anim-color-duration infinite $anim-color-timing;
+         }
+      }
+   }
+}
+
+@keyframes color-cycle {
+   50% {
+      fill: hsl(224, 93%, 58%);
+   }
+
+   75% {
+      fill: rgba(189, 186, 250, 1);
+   }
+}
+
+@keyframes float {
+   50% {
+      transform: translateY(7px);
+   }
+}
