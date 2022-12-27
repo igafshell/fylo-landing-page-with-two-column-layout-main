@@ -30,7 +30,7 @@
 
 .main {
    &__files {
-      &__illustrations {
+      &__illustration {
          @media (min-width: 600px) {
             width: 70%;
          }
@@ -188,24 +188,24 @@
 
          h1 {
             grid-area: h1;
-            font-size: 1.5em;
+            font-size: calc(1.5em + .6vw);
          }
 
          p {
             grid-area: p;
-            font-size: .85em;
-            max-width: 30rem;
+            font-size: calc(.85em + .15vw);
+            max-width: min(40vw, 40rem);
          }
 
          form {
             grid-area: form;
 
             input {
-               width: 80%;
+               width: min(80%, 35rem);
             }
 
             button {
-               width: 40%;
+               width: min(40%, 13rem);
             }
          }
       }

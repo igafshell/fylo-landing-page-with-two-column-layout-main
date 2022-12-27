@@ -14,18 +14,18 @@
       animation: float infinite ease-in-out 2s;
 
       #logo-icon {
-         $anim-color-duration: 1s;
+         $anim-color-duration: 2s;
          $anim-color-delay: 200ms;
          $anim-color-timing: linear;
 
          #i3 {
             animation: color-cycle $anim-color-duration infinite $anim-color-timing;
-            animation-delay: 200ms;
+            animation-delay: $anim-color-delay;
          }
 
          #i2 {
             animation: color-cycle $anim-color-duration infinite $anim-color-timing;
-            animation-delay: 400ms;
+            animation-delay: $anim-color-delay * 2;
          }
 
          #i1 {

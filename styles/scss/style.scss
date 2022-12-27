@@ -1,8 +1,7 @@
 @import "config";
-@import "animations";
 
 /* 
-	TODO:de
+	TODO:
 		- write readme
 		- set up live site 
 		- post on twitter and frontendmentor 
@@ -321,7 +320,9 @@ body {
 
 // Media queries
 @import "media";
+@import "animations";
 
 /* 
-	Had to put it at the end because otherwise it gets overwritten and won't work
+	Had to put it at the end because otherwise 
+	it gets overwritten and won't work
 */
