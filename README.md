@@ -14,6 +14,7 @@ This is a solution to the [Fylo landing page with two column layout challenge on
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
+- [Acknowledgments](#Acknowledgments)
 
 ## Overview
 
