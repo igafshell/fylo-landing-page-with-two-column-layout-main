@@ -46,6 +46,7 @@ Users should be able to:
 
 I learned very much making this project:
 
+- How to use the BEM methodology
 - How to use sass
 - How to make a whole page responsive
 - How to write better code
